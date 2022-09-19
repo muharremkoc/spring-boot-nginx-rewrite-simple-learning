@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  springboot:
+    container_name: springboot-nginx-rewrite
+    build: .
+
+    environment:
+      - POSTGRES_HOST
+      - POSTGRES_PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    ports:
+      - "9231:9231"
+    depends_on:
+      - postgresql
+  postgresql:
+    container_name: nginxpg
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: nginxPeople
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: nginxpgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+  nginx:
+    image: nginx:1.15-alpine
+    container_name: springbootnginx
+    links:
+      - springboot
+      - pgadmin
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf:Z
+    ports:
+      - 80:80

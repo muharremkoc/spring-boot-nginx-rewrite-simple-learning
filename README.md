@@ -22,7 +22,7 @@ This Project Goal's,Use Use Nginx Rewrite basic Rule in Spring Boot
 
   If you using only proxy_pass 
 
-![proxy_pass](https://user-images.githubusercontent.com/80245013/190970948-3ddba9bc-09e3-4247-a0a6-efd3aa7d0938.png)
+![proxy_pass](https://user-images.githubusercontent.com/80245013/190971508-bb6b26ed-279c-4d21-bb45-2c7c70d5c14b.png)
 
 
   If you using proxy pass with rewrite

@@ -28,7 +28,8 @@ This Project Goal's,Use Use Nginx Rewrite basic Rule in Spring Boot
   If you using proxy pass with rewrite
   
 
-![rewrite](https://user-images.githubusercontent.com/80245013/190971070-1d1e5efc-386a-4c3b-b4d0-fb0438269d56.png)
+![rewrite](https://user-images.githubusercontent.com/80245013/190971235-deb52c02-8653-4cb4-acb7-83f0df1109cd.png)
+
 
 
 ## Owner
